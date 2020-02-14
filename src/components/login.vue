@@ -52,23 +52,13 @@
 				this.password = "";
 	  		}
 	  	},
-	  	googleLogIn(){
+	  	googleLogIn: function(){
 	  		var provider = new firebase.auth.GoogleAuthProvider();
-	  		provider.setCustomParameters({
-			  'login_hint': 'user@example.com'
-			});
-			firebase.auth().signInWithPopup(provider).then(() => {
-			  this.$router.replace('privado');
-			}).catch(function(error) {
-			  // Handle Errors here.
-			  var errorCode = error.code;
-			  var errorMessage = error.message;
-			  // The email of the user's account used.
-			  var email = error.email;
-			  // The firebase.auth.AuthCredential type that was used.
-			  var credential = error.credential;
-			  // ...
-			});
+            firebase.auth().signInWithPopup(provider).then(() => {
+                this.$router.replace('privado')
+            }).catch(function (error) {
+                alert(error.message)
+            });
 	  	}
 	  }
 	}
