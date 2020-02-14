@@ -57,7 +57,7 @@
 	  		provider.setCustomParameters({
 			  'login_hint': 'user@example.com'
 			});
-			firebase.auth().signInWithPopup(provider).then(() => {
+			firebase.auth().signInWithRedirect(provider).then(() => {
 			  this.$router.replace('privado');
 			}).catch(function(error) {
 			  // Handle Errors here.
