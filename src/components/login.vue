@@ -15,7 +15,7 @@
         </form>
         New here? <router-link to="/register">Register a new account</router-link>.
         <br>
-        <button type="text" class="btn btn-danger mt-2" v-on:click="googleLogIn">Sign In with Google</button>
+        <button type="text" class="btn btn-dark mt-2" v-on:click="githubLogIn">Sign In with Github</button>
     </div>
 </div>
 </template>
@@ -52,11 +52,8 @@
 				this.password = "";
 	  		}
 	  	},
-	  	googleLogIn(){
-	  		var provider = new firebase.auth.GoogleAuthProvider();
-	  		provider.setCustomParameters({
-			  'login_hint': 'user@example.com'
-			});
+	  	githubLogIn(){
+	  		var provider = new firebase.auth.GithubAuthProvider();
 			firebase.auth().signInWithRedirect(provider).then(() => {
 			  this.$router.replace('privado');
 			}).catch(function(error) {
